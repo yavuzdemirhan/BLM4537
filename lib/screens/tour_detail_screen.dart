@@ -312,7 +312,7 @@ class _TourDetailScreenState extends State<TourDetailScreen> {
     );
   }
 
-  // --- OY VERME DİYALOĞU (Sade IconButton) ---
+  // --- OY VERME DİYALOĞU  ---
   void _showRatingDialog() {
     showDialog(
       context: context,

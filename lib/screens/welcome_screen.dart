@@ -40,7 +40,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               ),
             ),
           ),
-          Container(color: Colors.black.withOpacity(0.7)), // Karartma
+          Container(color: Colors.black.withOpacity(0.7)), 
           Center(
             child: FadeTransition(
               opacity: _fadeAnimation,

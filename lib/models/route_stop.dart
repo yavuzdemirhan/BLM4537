@@ -1,10 +1,10 @@
 class RouteStop {
   final int id;
   final int tourId;
-  final String stopName;    // C#: StopName
-  final String description; // C#: Description
-  final int orderIndex;     // C#: OrderIndex
-  final String time;        // C#: Time
+  final String stopName;    
+  final String description; 
+  final int orderIndex;     
+  final String time;       
 
   RouteStop({
     this.id = 0, // Yeni eklerken ID 0 gönderilir, DB otomatik atar.

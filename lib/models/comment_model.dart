@@ -20,14 +20,12 @@ class Comment {
       tourId: json['tourId'] ?? 0,
       username: json['username'] ?? "Anonim",
       content: json['content'] ?? "",
-      // Backend'den gelen String tarihi DateTime objesine çeviriyoruz
       createdAt: json['createdAt'] != null 
           ? DateTime.parse(json['createdAt']) 
           : DateTime.now(),
     );
   }
 
-  // Dart Nesnesinden JSON'a (Backend'e veri gönderirken)
   Map<String, dynamic> toJson() {
     return {
       'id': id,

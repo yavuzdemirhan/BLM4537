@@ -34,7 +34,7 @@ class Tour {
       olusturanKisi: json['olusturanKisi'] ?? 'Anonim',
       viewCount: json['viewCount'] ?? 0,
       customImageUrl: json['customImageUrl'],
-      averageRating: (json['averageRating'] ?? 0).toDouble(), // YENİ
+      averageRating: (json['averageRating'] ?? 0).toDouble(), 
     );
   }
 }

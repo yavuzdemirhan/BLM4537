@@ -30,7 +30,6 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF121212),
-      // HEADER - HOME İLE AYNI STİL
       appBar: AppBar(
         title: const Text("FAVORİLER", style: TextStyle(fontWeight: FontWeight.w900, fontSize: 24)),
         centerTitle: false,
@@ -49,8 +48,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 return GestureDetector(
                   // TIKLAYINCA DETAYA GİT
                   onTap: () {
-                    // Geçici Tour objesi oluşturup detaya yolluyoruz
-                    // Not: API'den tam veriyi çekmek daha doğru ama bu da çalışır.
+                    // Geçici Tour objesi oluşturup detaya yolluyoruz                 
                     Navigator.push(context, MaterialPageRoute(builder: (context) => TourDetailScreen(
                       tour: Tour(id: item['tourId'], baslik: item['tourTitle'], aciklama: "Yükleniyor...", rota: "", tarih: DateTime.now(), motosikletKategorisi: "Genel", olusturanKisi: "", viewCount: 0, averageRating: 0.0), 
                       imageUrl: item['tourImage'] ?? ""

@@ -15,7 +15,7 @@ class _AddTourScreenState extends State<AddTourScreen> {
   final _baslikCtrl = TextEditingController();
   final _rotaCtrl = TextEditingController();
   final _aciklamaCtrl = TextEditingController();
-  final _imageCtrl = TextEditingController(); // Resim Linki için
+  final _imageCtrl = TextEditingController(); 
   
   String _kategori = "Touring";
   DateTime _selectedDate = DateTime.now();
@@ -64,18 +64,18 @@ class _AddTourScreenState extends State<AddTourScreen> {
           
           // Model nesnesini oluşturuyoruz
           RouteStop newStop = RouteStop(
-            tourId: tourId, // API'den dönen yeni tur ID'si
-            stopName: _tempStops[i]['name'] ?? "", // Durak adı
-            description: "Tur Başlangıcı", // Varsayılan açıklama (veya boş bırakabilirsin)
-            orderIndex: i + 1, // Sıralama (1, 2, 3...)
-            time: _tempStops[i]['time'] ?? "", // Saat
+            tourId: tourId, 
+            stopName: _tempStops[i]['name'] ?? "", 
+            description: "Tur Başlangıcı", 
+            orderIndex: i + 1, 
+            time: _tempStops[i]['time'] ?? "",
           );
 
           // API servisine nesne olarak gönderiyoruz
           await ApiService().addRouteStop(newStop);
         }
 
-        // İşlem bitince ekranı kapat veya başarı mesajı göster...
+        // İşlem bitince ekranı kapat veya başarı mesajı göster
         if (mounted) {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
@@ -96,7 +96,7 @@ class _AddTourScreenState extends State<AddTourScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // SİYAH TEMA
+    
     return Scaffold(
       backgroundColor: const Color(0xFF121212), 
       appBar: AppBar(title: const Text("Yeni Rota Planla"), backgroundColor: Colors.black, foregroundColor: Colors.white),

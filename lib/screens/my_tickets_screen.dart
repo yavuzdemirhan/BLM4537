@@ -28,7 +28,6 @@ class _MyTicketsScreenState extends State<MyTicketsScreen> with SingleTickerProv
     _username = prefs.getString('saved_username') ?? "";
     
     if (_username.isNotEmpty) {
-      // ARTIK List<Tour> BEKLİYORUZ, Map DEĞİL
       final tickets = await _apiService.getMyParticipations(_username);
       if(mounted) {
         setState(() {
@@ -60,14 +59,13 @@ class _MyTicketsScreenState extends State<MyTicketsScreen> with SingleTickerProv
                   itemBuilder: (context, index) {
                     final tour = _myTickets[index];
                     
-                    // RESİM SEÇİMİ (Özel varsa özel, yoksa kategori)
+                    // RESİM SEÇİMİ 
                     final imageUrl = tour.customImageUrl != null && tour.customImageUrl!.isNotEmpty 
                         ? tour.customImageUrl! 
                         : ImageHelper.getImageByCategory(tour.motosikletKategorisi);
 
                     return GestureDetector(
                       onTap: () {
-                        // Tıklayınca Detaya Git
                         Navigator.push(context, MaterialPageRoute(builder: (context) => TourDetailScreen(tour: tour, imageUrl: imageUrl)));
                       },
                       child: Container(

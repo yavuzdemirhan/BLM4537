@@ -215,12 +215,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 }).toList();
 
                 return SliverPadding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5), // Kenar boşlukları biraz azaldı
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5), 
                   sliver: SliverGrid(
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3, // ARTIK 3 SÜTUN
-                      childAspectRatio: 0.68, // Kartın boy/en oranı (Dikdörtgen formunu korumak için ayarlandı)
-                      crossAxisSpacing: 8, // Kartlar arası boşluk azaldı
+                      crossAxisCount: 3, 
+                      childAspectRatio: 0.68, 
+                      crossAxisSpacing: 8, 
                       mainAxisSpacing: 8,
                     ),
                     delegate: SliverChildBuilderDelegate(
@@ -265,14 +265,13 @@ Widget _buildAnimCard(BuildContext context, Tour tour) {
     child: Container(
       decoration: BoxDecoration(
         color: const Color(0xFF1E1E1E),
-        borderRadius: BorderRadius.circular(20), // Köşe yuvarlaklığı biraz azaltıldı (küçük kartta çok yuvarlak sırıtır)
+        borderRadius: BorderRadius.circular(20), 
         boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.5), blurRadius: 4, offset: const Offset(0, 2))],
         border: Border.all(color: Colors.white.withOpacity(0.05)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // --- 1. RESİM ALANI (%55 - Görsellik ön planda kalsın) ---
           Expanded(
             flex: 55,
             child: Stack(
@@ -323,19 +322,18 @@ Widget _buildAnimCard(BuildContext context, Tour tour) {
             ),
           ),
 
-          // --- 2. İÇERİK ALANI (%45) ---
+          // --- 2. İÇERİK ALANI  ---
           Expanded(
             flex: 45,
             child: Padding(
-              padding: const EdgeInsets.all(8.0), // Padding azaltıldı
+              padding: const EdgeInsets.all(8.0), 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween, // İçeriği dikeyde yay
+                mainAxisAlignment: MainAxisAlignment.spaceBetween, 
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // BAŞLIK (30px -> 15px)
                       Text(
                         tour.baslik,
                         maxLines: 1,
@@ -344,10 +342,10 @@ Widget _buildAnimCard(BuildContext context, Tour tour) {
                       ),
                       const SizedBox(height: 2),                
 
-                      // ROTA (20px -> 11px)
+                      // ROTA
                       Row(
                         children: [
-                          const Icon(Icons.map, size: 17, color: Colors.redAccent), // İkon 12px
+                          const Icon(Icons.map, size: 17, color: Colors.redAccent), 
                           const SizedBox(width: 3),
                           Expanded(
                             child: Text(
@@ -371,7 +369,7 @@ Widget _buildAnimCard(BuildContext context, Tour tour) {
                       
                       const SizedBox(height: 6),
 
-                  // TARİH ve KİŞİ (En Alta Yaslı)
+                  // TARİH ve KİŞİ 
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

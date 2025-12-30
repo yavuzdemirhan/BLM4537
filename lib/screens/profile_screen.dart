@@ -146,7 +146,6 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
     ));
   }
 
-  // YARDIMCI: Koyu Tema Input Stili
   Widget _darkInput(TextEditingController c, String h) => Padding(
     padding: const EdgeInsets.only(bottom: 10),
     child: TextField(
@@ -165,11 +164,11 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF121212), // Simsiyah Arka Plan
+      backgroundColor: const Color(0xFF121212), 
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // ÜST KART (DASHBOARD)
+            // ÜST KART
             Container(
               padding: const EdgeInsets.fromLTRB(20, 60, 20, 25),
               decoration: BoxDecoration(
@@ -207,15 +206,15 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                 // İSTATİSTİKLER
                 Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
                   _statItem("Takipçi", "${_stats['followers']}"),
-                  Container(width: 1, height: 40, color: Colors.white10), // Ayraç
+                  Container(width: 1, height: 40, color: Colors.white10), 
                   _statItem("Takip", "${_stats['following']}"),
-                  Container(width: 1, height: 40, color: Colors.white10), // Ayraç
+                  Container(width: 1, height: 40, color: Colors.white10), 
                   _statItem("Motor", "${_myBikes.length}"),
                 ]),
                 
                 const SizedBox(height: 25),
                 
-                // SOS BUTONU (ÇALIŞIYOR)
+                // SOS BUTONU 
                 SizedBox(width: double.infinity, child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red[900], 
@@ -226,14 +225,14 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                   ),
                   icon: const Icon(Icons.medical_services_outlined), 
                   label: const Text("ACİL DURUM KARTI (SOS)", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  onPressed: _editSOSDialog // <-- ARTIK ÇALIŞIYOR
+                  onPressed: _editSOSDialog 
                 ))
               ]),
             ),
             
             const SizedBox(height: 15),
             
-            // TAB BAR (SİYAH/KIRMIZI)
+            // TAB BAR 
             TabBar(
               controller: _tabController, 
               labelColor: Colors.redAccent, 

@@ -60,13 +60,13 @@ class ApiService {
           "motosikletKategorisi": tour.motosikletKategorisi,
           "tarih": tour.tarih.toIso8601String(),
           "olusturanKisi": creatorUsername,
-          "customImageUrl": tour.customImageUrl, // YENİ
+          "customImageUrl": tour.customImageUrl, 
         }),
       );
       
       if (response.statusCode == 201) {
         final data = jsonDecode(response.body);
-        return data['id']; // ID'yi yakaladık!
+        return data['id']; 
       }
       return -1;
     } catch (e) { return -1; }
@@ -110,7 +110,7 @@ class ApiService {
     }
   }
   Future<bool> joinTour(int id, String t, String u) async { return (await http.post(Uri.parse('$baseUrl/Participations'), headers: {"Content-Type": "application/json"}, body: jsonEncode({"TourId": id, "TourTitle": t, "Username": u}))).statusCode == 200; }
-  // --- GÜNCELLENDİ: Katıldığım Turları Getir ---
+  // Katıldığım Turları Getir ---
   Future<List<Tour>> getMyParticipations(String username) async {
     try {
       final response = await http.get(Uri.parse('$baseUrl/Participations/$username'));
@@ -131,7 +131,6 @@ class ApiService {
 
   // 1. Turun duraklarını getir
   Future<List<RouteStop>> getRouteStops(int tourId) async {
-    // URL senin localhost veya sunucu adresin
     final response = await http.get(Uri.parse('$baseUrl/routestops/$tourId'));
 
     if (response.statusCode == 200) {
@@ -166,13 +165,12 @@ class ApiService {
   Future<bool> toggleFollow(String me, String other) async { return (await http.post(Uri.parse('$baseUrl/Follows/toggle'), headers: {"Content-Type": "application/json"}, body: jsonEncode({"FollowerUsername": me, "FollowingUsername": other}))).statusCode == 200; }
 
   Future<bool> isFavorite(String username, int tourId) async {
-      // Basit çözüm: Tüm favorileri çekip içinde var mı bakarız
       final favs = await getMyFavorites(username);
       return favs.any((f) => f['tourId'] == tourId);
   }
 
   Future<bool> isFollowing(String me, String other) async {
-      return false; // Varsayılan
+      return false; 
   }
 
   Future<bool> leaveTour(int tourId, String username) async {

@@ -153,7 +153,7 @@ class _MyActivitiesScreenState extends State<MyActivitiesScreen> with SingleTick
               ),
               child: Row(
                 children: [
-                  // --- SOL TARAFTA RESİM (AKILLI SEÇİM) ---
+                  // --- SOL TARAFTA RESİM  ---
                   ClipRRect(
                     borderRadius: const BorderRadius.horizontal(left: Radius.circular(12)),
                     child: Image.network(
