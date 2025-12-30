@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "IKrcQYMI6bGsh3yuxKLuaMoSSCjr6yNCqcDY5vNbF14=",
+  "Source": "MotosikletTuruProjesi.Server",
+  "BasePath": "_content/MotosikletTuruProjesi.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Yavuz\\source\\repos\\MotosikletTuruProjesi\\motosikletturuprojesi.client\\motosikletturuprojesi.client.esproj",
+      "Version": 2,
+      "Source": "motosikletturuprojesi.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
