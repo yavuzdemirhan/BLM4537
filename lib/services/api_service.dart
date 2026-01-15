@@ -93,22 +93,21 @@ class ApiService {
     }
   }
 
-  // 2. Yorum Gönder
-  Future<bool> postComment(Comment comment) async {
+  // --- MEVCUT postComment FONKSİYONUNU BUNUNLA DEĞİŞTİR ---
+  // Artık sadece true/false değil, Status Code (200, 400 vs.) döndürecek
+  Future<int> postCommentWithStatus(Comment comment) async {
     try {
-      // Backend: POST api/Comments
       final response = await http.post(
         Uri.parse('$baseUrl/Comments'),
         headers: {"Content-Type": "application/json"},
         body: jsonEncode(comment.toJson()),
       );
-
-      return response.statusCode == 200 || response.statusCode == 201;
+      return response.statusCode;
     } catch (e) {
-      print("Yorum gönderme hatası: $e");
-      return false;
+      return 500;
     }
   }
+  
   Future<bool> joinTour(int id, String t, String u) async { return (await http.post(Uri.parse('$baseUrl/Participations'), headers: {"Content-Type": "application/json"}, body: jsonEncode({"TourId": id, "TourTitle": t, "Username": u}))).statusCode == 200; }
   // Katıldığım Turları Getir ---
   Future<List<Tour>> getMyParticipations(String username) async {
@@ -196,6 +195,38 @@ class ApiService {
     } catch (e) { return false; }
   }
 
- 
+ // 1. (ADMIN) Onay Bekleyen Yorumları Getir
+  Future<List<Comment>> getPendingComments() async {
+    try {
+      final response = await http.get(Uri.parse('$baseUrl/Comments/pending'));
+      if (response.statusCode == 200) {
+        List<dynamic> body = jsonDecode(response.body);
+        return body.map((item) => Comment.fromJson(item)).toList();
+      }
+      return [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  // 2. (ADMIN) Yorumu Onayla
+  Future<bool> approveComment(int id) async {
+    try {
+      final response = await http.post(Uri.parse('$baseUrl/Comments/approve/$id'));
+      return response.statusCode == 200;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // 3. (ADMIN) Yorumu Sil/Reddet
+  Future<bool> deleteComment(int id) async {
+    try {
+      final response = await http.delete(Uri.parse('$baseUrl/Comments/$id'));
+      return response.statusCode == 200;
+    } catch (e) {
+      return false;
+    }
+  }
 
 }

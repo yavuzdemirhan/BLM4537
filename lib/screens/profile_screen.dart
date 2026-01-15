@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'welcome_screen.dart';
 import '../services/api_service.dart';
+import 'admin_panel_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -232,6 +233,26 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
             
             const SizedBox(height: 15),
             
+            const SizedBox(height: 15),
+
+            // --- SADECE ADMIN GÖRSÜN ---
+            if (_email == "yselim_demirhan@hotmail.com") 
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton.icon(
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    side: const BorderSide(color: Colors.orange, width: 2),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                  icon: const Icon(Icons.shield, color: Colors.orange),
+                  label: const Text("ADMİN PANELİ", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold, fontSize: 16)),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const AdminPanelScreen()));
+                  },
+                ),
+              ),
+              
             // TAB BAR 
             TabBar(
               controller: _tabController, 

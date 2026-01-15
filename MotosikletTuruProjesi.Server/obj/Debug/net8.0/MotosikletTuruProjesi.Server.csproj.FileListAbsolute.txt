@@ -139,3 +139,4 @@ C:\Users\Yavuz\source\repos\MotosikletTuruProjesi\MotosikletTuruProjesi.Server\b
 C:\Users\Yavuz\source\repos\MotosikletTuruProjesi\MotosikletTuruProjesi.Server\bin\Debug\net8.0\MotosikletTuruProjesi.Server.pdb
 C:\Users\Yavuz\source\repos\MotosikletTuruProjesi\MotosikletTuruProjesi.Server\obj\Debug\net8.0\MotosikletTuruProjesi.Server.genruntimeconfig.cache
 C:\Users\Yavuz\source\repos\MotosikletTuruProjesi\MotosikletTuruProjesi.Server\obj\Debug\net8.0\ref\MotosikletTuruProjesi.Server.dll
+C:\Users\Yavuz\source\repos\MotosikletTuruProjesi\MotosikletTuruProjesi.Server\obj\Debug\net8.0\MotosikletTuruProjesi.Server.sourcelink.json

@@ -142,12 +142,43 @@ class _TourDetailScreenState extends State<TourDetailScreen> {
 
   Future<void> _handlePostComment() async {
     if (_commentController.text.isEmpty) return;
+    
+    // Model oluştur
     Comment c = Comment(id: 0, tourId: widget.tour.id, username: _currentUsername, content: _commentController.text, createdAt: DateTime.now());
-    if (await _apiService.postComment(c)) {
+    
+    // Yeni yazdığımız status code döndüren fonksiyonu kullanıyoruz
+    int statusCode = await _apiService.postCommentWithStatus(c);
+
+    if (statusCode == 200 || statusCode == 201) {
+      // BAŞARILI
       _commentController.clear();
       FocusScope.of(context).unfocus();
-      _fetchComments();
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Yorum paylaşıldı"), backgroundColor: Colors.green));
+      
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          backgroundColor: const Color(0xFF1E1E1E),
+          title: const Text("Yorum Alındı ✅", style: TextStyle(color: Colors.white)),
+          content: const Text("Yorumunuz admin onayına gönderildi. Onaylandıktan sonra burada görünecektir.", style: TextStyle(color: Colors.white70)),
+          actions: [TextButton(onPressed: () => Navigator.pop(ctx), child: const Text("Tamam"))],
+        ),
+      );
+      
+      // Yorum listesini yenilemiyoruz çünkü yorum henüz onaylanmadı, görünmeyecek.
+      
+    } else if (statusCode == 400) {
+      // HATA: ZATEN YORUM YAPMIŞ
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          backgroundColor: const Color(0xFF1E1E1E),
+          title: const Text("İşlem Başarısız ⚠️", style: TextStyle(color: Colors.redAccent)),
+          content: const Text("Bu tura birden fazla yorum atılamaz.", style: TextStyle(color: Colors.white70)),
+          actions: [TextButton(onPressed: () => Navigator.pop(ctx), child: const Text("Tamam"))],
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Bir hata oluştu"), backgroundColor: Colors.red));
     }
   }
 

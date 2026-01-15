@@ -81,14 +81,19 @@ namespace MotosikletTuruProjesi.Controllers
             // Kullanıcı varsa VE şifresi doğruysa
             if (user != null && await _userManager.CheckPasswordAsync(user, loginDto.Password))
             {
-                // --- KİMLİK KARTI (TOKEN) OLUŞTURMA BAŞLIYOR ---
+                // --- ADMIN KONTROLÜ (EN KISA YOL) ---
+                // Eğer kullanıcı adı senin belirlediğin ise Admin, değilse User
+                string role = (user.UserName == "yselim_demirhan@hotmail.com") ? "Admin" : "User";
 
-                var tokenString = GenerateJwtToken(user);
+                // --- KİMLİK KARTI (TOKEN) OLUŞTURMA ---
+                var tokenString = GenerateJwtToken(user, role);
 
                 return Ok(new
                 {
                     token = tokenString,
-                    username = user.UserName, 
+                    username = user.UserName,
+                    email = user.Email,
+                    role = role, 
                     message = "Giriş başarılı."
                 });
             }
@@ -98,7 +103,7 @@ namespace MotosikletTuruProjesi.Controllers
 
 
         // --- JWT TOKEN OLUŞTURUCU ---
-        private string GenerateJwtToken(IdentityUser user)
+        private string GenerateJwtToken(IdentityUser user, string role)
         {
           
             var jwtKey = _config["Jwt:Key"];
@@ -110,7 +115,8 @@ namespace MotosikletTuruProjesi.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email), // Konu: E-posta
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // Benzersiz ID
-                new Claim(ClaimTypes.NameIdentifier, user.Id) //  Kullanıcının ID'si
+                new Claim(ClaimTypes.NameIdentifier, user.Id), //  Kullanıcının ID'si
+                new Claim(ClaimTypes.Role, role)
             };
 
             

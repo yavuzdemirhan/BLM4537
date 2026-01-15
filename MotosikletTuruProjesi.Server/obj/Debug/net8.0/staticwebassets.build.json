@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IKrcQYMI6bGsh3yuxKLuaMoSSCjr6yNCqcDY5vNbF14=",
+  "Hash": "japjgCcUmbHCmxFm97H8mgI+RYvdjuIKKUg+7RPVIRo=",
   "Source": "MotosikletTuruProjesi.Server",
   "BasePath": "_content/MotosikletTuruProjesi.Server",
   "Mode": "Default",
@@ -11,10 +11,10 @@
       "Version": 2,
       "Source": "motosikletturuprojesi.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishProperties": "",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildProperties": "",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
     }
   ],

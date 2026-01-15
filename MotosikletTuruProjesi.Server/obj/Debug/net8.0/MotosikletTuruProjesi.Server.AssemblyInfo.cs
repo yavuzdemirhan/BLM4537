@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MotosikletTuruProjesi.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba08fe95fbe8817f328bd879734f345ac9ffc158")]
 [assembly: System.Reflection.AssemblyProductAttribute("MotosikletTuruProjesi.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MotosikletTuruProjesi.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
